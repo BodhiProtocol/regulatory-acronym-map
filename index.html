@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regulatory Acronym Map · BodhiProtocol</title>
+<meta name="description" content="100 capital markets regulations and regulators, decoded into plain language — organized by category and region, with a note on why each one matters to a BA.">
+<meta name="theme-color" content="#14101F">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%2314101F%22/><text x=%2250%22 y=%2266%22 font-size=%2258%22 text-anchor=%22middle%22 fill=%22%239D7BEA%22 font-family=%22Georgia,serif%22>R</text></svg>">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Regulatory Acronym Map · BodhiProtocol">
+<meta property="og:description" content="100 capital markets regulations and regulators, decoded into plain language — organized by category and region, with a note on why each one matters to a BA.">
+<meta property="og:url" content="https://bodhiprotocol.github.io/regulatory-acronym-map/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Regulatory Acronym Map · BodhiProtocol">
+<meta name="twitter:description" content="100 capital markets regulations and regulators, decoded into plain language — organized by category and region, with a note on why each one matters to a BA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#14101F;
+  --panel:#201936;
+  --panel-2:#2A2145;
+  --lotus:#9D7BEA;
+  --lavender:#C9B8F5;
+  --gold:#E8B75A;
+  --mist:#EDE9F7;
+  --muted:#8B84A3;
+  --line:rgba(157,123,234,.22);
+  --on-accent:#14101F;
+}
+html.pastel{
+  --ink:#F7F4EF;
+  --panel:#FFFFFF;
+  --panel-2:#EFEAE0;
+  --lotus:#5B7FA6;
+  --lavender:#7B98B8;
+  --gold:#C97F3E;
+  --mist:#3A3630;
+  --muted:#8A8578;
+  --line:rgba(58,54,48,.15);
+  --on-accent:#FFFFFF;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+body{
+  background:var(--ink);color:var(--mist);
+  font-family:'Inter',system-ui,sans-serif;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:920px;margin:0 auto;padding:0 24px}
+
+header{padding:26px 0 0;display:flex;justify-content:center}
+.theme-toggle{position:fixed;top:20px;right:20px;z-index:10;display:flex;gap:0}
+.theme-btn{
+  background:var(--panel);border:1px solid var(--line);
+  color:var(--lavender);font-family:'Inter',sans-serif;font-weight:500;
+  font-size:.76rem;padding:7px 16px;cursor:pointer;transition:all .25s ease;
+}
+.theme-btn:first-child{border-radius:999px 0 0 999px;border-right:none}
+.theme-btn:last-child{border-radius:0 999px 999px 0}
+.theme-btn.active{background:var(--lotus);border-color:var(--lotus);color:var(--on-accent)}
+.theme-btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+@media (max-width:640px){
+  .theme-toggle{top:12px;right:12px}
+  .theme-btn{padding:6px 12px;font-size:.7rem}
+}
+.brand{
+  font-family:'IBM Plex Mono',monospace;font-size:.78rem;
+  letter-spacing:.22em;color:var(--muted);text-transform:uppercase;
+}
+.brand b{color:var(--lotus);font-weight:500}
+
+.hero{padding:46px 0 26px;text-align:center}
+.hero h1{
+  font-family:'Cormorant Garamond',serif;font-weight:600;
+  font-size:clamp(2.1rem,5.6vw,3.4rem);line-height:1.1;
+}
+.hero h1 em{font-style:italic;color:var(--lotus)}
+.hero p{margin:14px auto 0;max-width:520px;color:var(--muted);font-size:1rem}
+
+/* decode bar */
+.decode-zone{padding:8px 0 18px}
+.decode-bar{display:flex;gap:10px;max-width:620px;margin:0 auto}
+.decode-bar input{
+  flex:1;background:var(--panel);border:1.5px solid var(--line);
+  border-radius:999px;padding:15px 24px;color:var(--mist);
+  font-family:'Inter',sans-serif;font-size:1rem;outline:none;
+  transition:border-color .25s ease;
+}
+.decode-bar input::placeholder{color:var(--muted)}
+.decode-bar input:focus{border-color:var(--gold)}
+.decode-bar button{
+  background:var(--lotus);border:none;border-radius:999px;
+  padding:0 26px;color:var(--on-accent);font-weight:600;font-size:.92rem;
+  cursor:pointer;font-family:'Inter',sans-serif;transition:background .25s ease;
+  white-space:nowrap;
+}
+.decode-bar button:hover{background:var(--gold)}
+.decode-bar button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.count{
+  text-align:center;margin-top:14px;
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+}
+.count b{color:var(--gold);font-weight:500}
+
+/* filter groups */
+.filter-group{padding:16px 0 0}
+.filter-label{
+  text-align:center;font-family:'IBM Plex Mono',monospace;font-size:.64rem;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;
+}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding-bottom:20px}
+.chip{
+  background:none;border:1px solid var(--line);border-radius:999px;
+  padding:6px 16px;color:var(--lavender);font-size:.8rem;font-weight:500;
+  cursor:pointer;font-family:'Inter',sans-serif;transition:all .25s ease;
+}
+.chip:hover{border-color:var(--lotus);background:var(--panel)}
+.chip:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.chip.active{background:var(--lotus);border-color:var(--lotus);color:var(--on-accent)}
+.chips.region .chip{font-size:.74rem;padding:5px 14px}
+
+/* term cards */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding-bottom:60px}
+.card{
+  background:var(--panel);border:1px solid var(--line);
+  border-radius:16px;padding:22px 24px;
+  transition:border-color .25s ease;
+}
+.card:hover{border-color:var(--lotus)}
+.card .top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:8px}
+.card .cat{
+  font-family:'IBM Plex Mono',monospace;font-size:.62rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--gold);
+  display:flex;flex-wrap:wrap;align-items:center;gap:7px;
+}
+.region-tag{
+  font-family:'IBM Plex Mono',monospace;font-size:.6rem;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--lavender);
+  border:1px solid var(--line);border-radius:999px;padding:1px 9px;
+}
+.top-actions{display:flex;gap:6px;align-items:center;flex-shrink:0}
+.badge{
+  font-family:'IBM Plex Mono',monospace;font-size:.6rem;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--on-accent);background:var(--gold);border-radius:999px;
+  padding:2px 10px;cursor:pointer;border:none;transition:background .25s ease;
+  white-space:nowrap;
+}
+.badge:hover{background:var(--lavender)}
+.badge:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.link-badge{
+  font-family:'IBM Plex Mono',monospace;font-size:.6rem;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--lavender);background:none;border:1px solid var(--line);border-radius:999px;
+  padding:1px 9px;cursor:pointer;transition:all .25s ease;
+}
+.link-badge:hover{border-color:var(--lotus)}
+.link-badge:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.link-badge.copied{border-color:var(--gold);color:var(--gold)}
+.card h3{
+  font-family:'IBM Plex Mono',monospace;font-weight:500;
+  font-size:1.05rem;color:var(--mist);margin-bottom:2px;letter-spacing:.02em;
+}
+.card .full{font-size:.78rem;color:var(--muted);margin-bottom:10px}
+.card .plain{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:1.1rem;color:var(--lavender);line-height:1.45;margin-bottom:10px;
+}
+.card .more{font-size:.86rem;color:var(--muted)}
+.card .why{
+  display:none;margin-top:16px;padding-top:16px;
+  border-top:1px dashed var(--line);font-size:.86rem;color:var(--mist);
+}
+.card .why b{
+  display:block;font-family:'IBM Plex Mono',monospace;font-size:.62rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;font-weight:500;
+}
+.card.open .why{display:block}
+.empty{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--muted)}
+.empty .big{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:1.4rem;color:var(--lavender);margin-bottom:8px;
+}
+
+footer{border-top:1px solid var(--line);padding:32px 0 44px;text-align:center}
+footer .om{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  color:var(--lavender);font-size:1.02rem;margin-bottom:10px;
+}
+footer .meta{
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;
+  letter-spacing:.16em;color:var(--muted);text-transform:uppercase;
+}
+footer .meta a{color:var(--lotus);text-decoration:none}
+footer .meta a:hover{color:var(--gold)}
+
+@media (max-width:640px){
+  .grid{grid-template-columns:1fr}
+  .decode-bar{flex-direction:column}
+  .decode-bar button{padding:13px 26px}
+  .badge{padding:10px 16px}
+  .chip{padding:10px 16px}
+}
+</style>
+</head>
+<body>
+
+<div class="theme-toggle" role="group" aria-label="Theme">
+  <button class="theme-btn active" id="themeDark" type="button">Dark</button>
+  <button class="theme-btn" id="themeLight" type="button">Light</button>
+</div>
+
+<header>
+  <div class="brand">Bodhi<b>Protocol</b></div>
+</header>
+
+<section class="hero wrap">
+  <h1>A hundred acronyms.<br><em>One plain-language map.</em></h1>
+  <p>The regulations and regulators a capital markets BA runs into — decoded, filed by category and region, with a note on why each one actually matters to the work.</p>
+</section>
+
+<section class="decode-zone wrap">
+  <div class="decode-bar">
+    <input id="q" type="text" placeholder="Search MiFID II, KYC, Basel III, the SEC..." aria-label="Search regulations" autocomplete="off">
+    <button id="surprise" type="button">Surprise me</button>
+  </div>
+  <div class="count" id="count"></div>
+</section>
+
+<section class="wrap">
+  <div class="filter-group">
+    <div class="filter-label">Category</div>
+    <div class="chips" id="chips" role="group" aria-label="Filter by category"></div>
+  </div>
+  <div class="filter-group">
+    <div class="filter-label">Region</div>
+    <div class="chips region" id="regionChips" role="group" aria-label="Filter by region"></div>
+  </div>
+  <div class="grid" id="grid" aria-live="polite"></div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="om">"Sunlight is said to be the best of disinfectants." — Louis Brandeis</div>
+    <div class="meta">Built by a business analyst · <a href="https://github.com/BodhiProtocol" target="_blank" rel="noopener">github.com/BodhiProtocol</a></div>
+  </div>
+</footer>
+
+<script>
+/* ---------- theme toggle ---------- */
+const THEME_KEY = "reg-acronym-map-theme";
+const themeDarkBtn = document.getElementById("themeDark");
+const themeLightBtn = document.getElementById("themeLight");
+function applyTheme(theme){
+  document.documentElement.classList.toggle("pastel", theme === "light");
+  themeDarkBtn.classList.toggle("active", theme === "dark");
+  themeLightBtn.classList.toggle("active", theme === "light");
+  localStorage.setItem(THEME_KEY, theme);
+}
+let savedTheme = localStorage.getItem(THEME_KEY) || "dark";
+applyTheme(savedTheme);
+themeDarkBtn.addEventListener("click", () => applyTheme("dark"));
+themeLightBtn.addEventListener("click", () => applyTheme("light"));
+
+const CATS = ["Regulators & Bodies","Trading & Market Structure","Clearing & Settlement","Capital & Prudential","Reporting & Transparency","Conduct & Investor Protection","AML & Financial Crime","Data & Operational Resilience","Funds & Asset Management"];
+const REGIONS = ["Global","US","EU","UK","APAC"];
+
+const ITEMS = [
+{t:"SEC",full:"U.S. Securities and Exchange Commission",r:1,c:0,p:"America's top securities cop — writes and enforces the rules for markets, brokers, and public companies.",m:"Oversees exchanges, broker-dealers, investment advisers, and public company disclosure. Created after the 1929 crash to restore trust in markets.",w:"If a US project involves anything investor-facing — disclosures, trading venues, adviser conduct — the SEC's rulebook is probably the source document."},
+{t:"FINRA",full:"Financial Industry Regulatory Authority",r:1,c:0,p:"The industry's own police force — a self-regulatory body that polices US broker-dealers on the SEC's behalf.",m:"Not a government agency; a non-profit SRO funded by the industry it oversees. Runs licensing exams (Series 7, 63, etc.) and the CAT and TRACE systems.",w:"Broker-dealer compliance and trade reporting projects usually trace requirements back to a FINRA rule, not directly to the SEC."},
+{t:"CFTC",full:"Commodity Futures Trading Commission",r:1,c:0,p:"The SEC's counterpart for derivatives — futures, swaps, and commodity markets.",m:"Regulates futures exchanges (DCMs), swap execution facilities (SEFs), and swap dealers under Dodd-Frank Title VII.",w:"If your project touches futures, swaps, or commodities rather than stocks and bonds, CFTC rules apply instead of (or alongside) SEC rules."},
+{t:"FDIC",full:"Federal Deposit Insurance Corporation",r:1,c:0,p:"Insures your bank deposit so a bank failure doesn't wipe out your savings.",m:"Insures deposits up to $250,000 per depositor per bank, and also supervises many state-chartered banks.",w:"Relevant mainly to banking-side projects (deposit systems, bank resolution), less so to capital markets trading."},
+{t:"OCC (regulator)",full:"Office of the Comptroller of the Currency",r:1,c:0,p:"Charters and supervises US national banks and federal savings associations.",m:"A bureau of the US Treasury; distinct from \"OCC\" the options clearing corporation — same acronym, different world.",w:"Watch for the acronym collision: in equities/options projects \"OCC\" usually means the Options Clearing Corporation, not this regulator."},
+{t:"The Fed",full:"Federal Reserve System",r:1,c:0,p:"America's central bank — sets interest rates and supervises the largest banks.",m:"A system of 12 regional banks plus a Board of Governors; also the lender of last resort in a crisis.",w:"Rate decisions ripple into every discounting/valuation model; the Fed also co-supervises bank capital rules like CCAR alongside the OCC and FDIC."},
+{t:"FCA",full:"Financial Conduct Authority",r:3,c:0,p:"The UK's conduct regulator — protects consumers and polices market integrity.",m:"Split from the old FSA in 2013; regulates roughly 50,000 UK financial firms' conduct, marketing, and treatment of customers.",w:"Any UK-facing project involving retail disclosures, SMCR, or Consumer Duty answers to the FCA."},
+{t:"PRA",full:"Prudential Regulation Authority",r:3,c:0,p:"The FCA's sibling — focused on whether UK banks and insurers are financially sound, not how they treat customers.",m:"Part of the Bank of England; supervises capital, liquidity, and safety-and-soundness for roughly 1,500 UK banks, insurers, and major investment firms.",w:"A UK bank capital or stress-testing project is a PRA conversation; a UK customer-facing disclosure project is an FCA conversation."},
+{t:"BoE",full:"Bank of England",r:3,c:0,p:"The UK's central bank, and the PRA's parent.",m:"Sets UK interest rates, oversees financial stability, and runs the UK's systemic risk and stress-test regime.",w:"Comes up in the same breath as PRA for anything touching UK bank capital adequacy or system-wide stress tests."},
+{t:"ESMA",full:"European Securities and Markets Authority",r:2,c:0,p:"The EU's markets watchdog — writes the technical detail underneath laws like MiFID II and EMIR.",m:"Doesn't supervise firms directly (national regulators do) but sets binding technical standards and coordinates supervision across the EU.",w:"When a EU rule says \"as further specified by ESMA,\" that's where the actual field-level reporting requirements usually live."},
+{t:"EBA",full:"European Banking Authority",r:2,c:0,p:"ESMA's counterpart for banks — sets EU-wide prudential and capital standards.",m:"Produces the technical standards underlying CRD IV/CRR and runs EU-wide bank stress tests.",w:"Relevant to EU bank capital and stress-testing projects, parallel to how the Fed and OCC function in the US."},
+{t:"ECB",full:"European Central Bank",r:2,c:0,p:"The Eurozone's central bank, and direct supervisor of its biggest banks.",m:"Sets interest rates for the euro area and, since 2014, directly supervises the largest Eurozone banks under the Single Supervisory Mechanism.",w:"For euro-area banking projects, the ECB can be both the monetary authority and the actual banking supervisor — a dual role worth flagging in scoping docs."},
+{t:"BaFin",full:"Bundesanstalt für Finanzdienstleistungsaufsicht",r:2,c:0,p:"Germany's all-in-one financial regulator — banking, insurance, and securities under one roof.",m:"Unlike the UK's FCA/PRA split, BaFin supervises all three sectors directly, working alongside the ECB for the largest banks.",w:"Useful shorthand when a project references a specific national regulator rather than an EU-wide body like ESMA or EBA."},
+{t:"MAS",full:"Monetary Authority of Singapore",r:4,c:0,p:"Singapore's central bank and its sole financial regulator, all in one.",m:"Combines the roles of central bank, banking supervisor, and securities/insurance regulator that most countries split across several bodies.",w:"For APAC expansion projects, MAS is usually the single point of regulatory contact rather than a patchwork of agencies."},
+{t:"SFC",full:"Securities and Futures Commission",r:4,c:0,p:"Hong Kong's securities and derivatives regulator.",m:"Oversees HK's exchanges, brokers, and asset managers under the Securities and Futures Ordinance.",w:"Comes up in any Hong Kong listing, licensing, or asset-management project scope."},
+{t:"ASIC",full:"Australian Securities and Investments Commission",r:4,c:0,p:"Australia's corporate, markets, and financial services regulator.",m:"Covers company registration, market conduct, and consumer protection in one agency, similar in scope to a combined SEC and FINRA.",w:"The default regulator to cite for any Australia-facing capital markets or conduct requirement."},
+{t:"JFSA",full:"Japan Financial Services Agency",r:4,c:0,p:"Japan's single financial regulator, covering banking, securities, and insurance.",m:"Supervises under the Financial Instruments and Exchange Act (FIEA), Japan's rough equivalent of a combined Securities Exchange Act and MiFID.",w:"Useful when scoping a Japan market-entry or cross-border trading project."},
+{t:"SEBI",full:"Securities and Exchange Board of India",r:4,c:0,p:"India's securities markets regulator — the SEC of India.",m:"Regulates Indian stock exchanges, brokers, depositories (NSDL/CDSL), and mutual funds; pioneered India's T+1 settlement cycle.",w:"Directly relevant given this org's prior India-context tools (T+1, DvP, demat in the Jargon Decoder) — SEBI is the rule-writer behind those mechanics."},
+{t:"IOSCO",full:"International Organization of Securities Commissions",r:0,c:0,p:"The \"regulator of regulators\" — sets global principles that national securities watchdogs adopt into local law.",m:"Its members include the SEC, FCA, ESMA, and most national regulators; its principles underpin things like PFMI (with CPMI) and cross-border supervisory cooperation.",w:"When a requirements doc cites an \"international standard\" behind a local rule, IOSCO is frequently the source."},
+{t:"FSB",full:"Financial Stability Board",r:0,c:0,p:"The G20's watchdog for systemic risk in the global financial system.",m:"Coordinates national regulators and standard-setters (like Basel and IOSCO) to spot and address risks to the whole system, born out of the 2008 crisis.",w:"Concepts like G-SIB designation and TLAC trace back to FSB policy work, not any single country's regulator."},
+{t:"BIS",full:"Bank for International Settlements",r:0,c:0,p:"The \"central bank for central banks\" — and home of the Basel Committee.",m:"A Switzerland-based institution that hosts the Basel Committee on Banking Supervision, source of the Basel III/IV capital rules.",w:"When a project references \"Basel\" requirements, BIS/the Basel Committee is the origin, even though no single country enforces it directly — local regulators transpose it into law."},
+{t:"FATF",full:"Financial Action Task Force",r:0,c:0,p:"Sets the global standard for fighting money laundering and terrorist financing.",m:"Its 40 Recommendations are the template that national AML laws (like the EU's AMLDs or the US Bank Secrecy Act) are built from.",w:"When an AML project needs a justification for \"why this control exists,\" FATF's Recommendations are usually the root standard."},
+
+{t:"MiFID II",full:"Markets in Financial Instruments Directive II",r:2,c:1,p:"The EU's mega-rulebook for how financial instruments get traded, reported, and sold — MiFID I on steroids.",m:"Effective 2018; covers venue types (RM/MTF/OTF), best execution, transaction reporting, product governance, and research unbundling.",w:"The single most-cited EU regulation in capital markets BA work — most EU trading requirements docs trace back to a MiFID II article number."},
+{t:"MiFIR",full:"Markets in Financial Instruments Regulation",r:2,c:1,p:"MiFID II's twin — the directly-binding regulation half of the same reform package.",m:"Handles the more mechanical, directly-applicable pieces: transaction reporting fields, transparency thresholds, and the trading obligation for derivatives.",w:"When a EU reporting spec cites exact field formats, it's usually MiFIR (and its technical standards), not MiFID II itself."},
+{t:"Reg NMS",full:"Regulation National Market System",r:1,c:1,p:"The rulebook that stitches together America's many stock exchanges into one \"national market.\"",m:"Includes the Order Protection Rule (trade-through protection) and Access Rule, ensuring investors get the best price across all US venues.",w:"Any US smart-order-routing or best-execution project is built around satisfying Reg NMS's trade-through rules."},
+{t:"Reg ATS",full:"Regulation Alternative Trading Systems",r:1,c:1,p:"The rules for \"dark\" venues that match trades away from public exchanges.",m:"Covers dark pools and other ATSs — requires registration, fair access, and (since 2020) more disclosure about how they operate.",w:"Relevant whenever a project involves a non-exchange trading venue in the US, including bank-run dark pools."},
+{t:"Reg SHO",full:"Regulation SHO",r:1,c:1,p:"The rulebook against abusive short selling, especially \"naked\" shorting.",m:"Requires a \"locate\" before shorting and imposes close-out rules for persistent settlement fails tied to short sales.",w:"Ties directly into the Failed Trade / buy-in concepts already covered elsewhere in this org's tools — Reg SHO is the US legal backstop for that mechanic."},
+{t:"SSR",full:"Short Selling Regulation",r:2,c:1,p:"The EU's version of short-selling guardrails — disclosure and \"locate\" requirements, plus emergency bans in a crash.",m:"Requires reporting of significant net short positions to regulators and, above a threshold, public disclosure.",w:"The EU counterpart to Reg SHO — useful when a US-built short-selling feature needs an EU equivalent requirement."},
+{t:"MAR",full:"Market Abuse Regulation",r:2,c:1,p:"The EU's law against insider trading and market manipulation.",m:"Covers insider dealing, unlawful disclosure of inside information, and market manipulation, plus surveillance and suspicious transaction reporting duties for firms.",w:"Trade surveillance system requirements in an EU context are usually justified by a MAR obligation."},
+{t:"CAT",full:"Consolidated Audit Trail",r:1,c:1,p:"A single database meant to capture every order and trade across the entire US equity and options market.",m:"Built after the 2010 Flash Crash exposed how hard it was to reconstruct market events; broker-dealers report full order lifecycle data daily.",w:"One of the largest ongoing US regulatory-reporting build-outs — a recurring source of BA work for any US broker-dealer's trade reporting team."},
+{t:"Rule 605/606",full:"SEC order execution & routing disclosure rules",r:1,c:1,p:"The rules that force brokers to publish how well (605) and where (606) they actually execute your orders.",m:"Rule 605 covers venue-level execution-quality stats; Rule 606 covers broker-level order-routing disclosures, including payment-for-order-flow arrangements.",w:"Comes up in any US best-execution or order-routing transparency project — the two numbers are often confused, so keep them straight in specs."},
+{t:"Rule 15c3-5",full:"Market Access Rule",r:1,c:1,p:"Requires brokers to have real risk controls in place before letting anyone — including algos — touch the market through them.",m:"Forces pre-trade risk checks (credit limits, erroneous-order controls) on any firm providing market access, including sponsored access clients.",w:"The regulatory reason every US trading system needs pre-trade risk gates, not just a nice-to-have engineering feature."},
+{t:"SI",full:"Systematic Internaliser",r:2,c:1,p:"A firm that trades so much client flow against its own book that regulators treat it like a mini exchange.",m:"A MiFID II-defined status triggered by trading volume thresholds; SIs get exchange-like pre-trade quote and post-trade reporting obligations.",w:"If a bank's internal matching desk crosses SI thresholds, it suddenly inherits venue-like reporting requirements — a classic scope-creep trigger in EU trading projects."},
+{t:"APA / ARM",full:"Approved Publication Arrangement / Approved Reporting Mechanism",r:2,c:1,p:"The certified middlemen that firms use to publish trade data (APA) or report transactions to regulators (ARM) under MiFID II.",m:"Firms often can't report directly to regulators — they route through a certified APA or ARM, which handles formatting and delivery.",w:"When a EU reporting project's data has to \"go somewhere,\" it's usually to an APA or ARM, not straight to ESMA or the national regulator."},
+{t:"MTF / OTF",full:"Multilateral / Organised Trading Facility",r:2,c:1,p:"Two of MiFID II's non-exchange venue categories — MTFs for straightforward matching, OTFs for anything needing discretion (mainly bonds and derivatives).",m:"Along with \"Regulated Markets\" (RMs), these three categories are the full menu of EU trading venue types.",w:"Venue-type classification determines which reporting and transparency rules apply — get this wrong in a requirements doc and every downstream rule is wrong too."},
+{t:"SEF",full:"Swap Execution Facility",r:1,c:1,p:"The CFTC's answer to an exchange, but for swaps.",m:"Dodd-Frank pushed standardized swaps onto these regulated venues instead of purely private (bilateral) deals, for transparency.",w:"Relevant to derivatives trading projects — the SEF ecosystem is the US analogue of the EU's OTF for swaps."},
+{t:"DCM",full:"Designated Contract Market",r:1,c:1,p:"A fully registered US futures exchange, like the CME.",m:"The CFTC's top-tier venue category — DCMs can list futures for anyone, unlike more restricted venue types.",w:"Useful when disambiguating US futures venue types in a derivatives project's data model."},
+{t:"LEI",full:"Legal Entity Identifier",r:0,c:1,p:"A 20-character global ID number for a legal entity — a company's passport for financial transactions.",m:"Mandated by regulators worldwide (MiFID II, EMIR, Dodd-Frank) so every counterparty in a trade or report can be uniquely identified across systems and borders.",w:"Almost every cross-border reporting project needs an LEI field — it's the one identifier standard nearly all regulations converge on."},
+
+{t:"EMIR",full:"European Market Infrastructure Regulation",r:2,c:2,p:"The EU's post-2008 rulebook forcing standardized derivatives through central clearing and reporting.",m:"Requires eligible OTC derivatives to be centrally cleared via a CCP, reported to a trade repository, and risk-mitigated (margin) if not cleared.",w:"The EU parallel to Dodd-Frank Title VII — if a project mentions derivatives clearing or reporting in Europe, this is the anchor regulation."},
+{t:"EMIR Refit",full:"EMIR Refit",r:2,c:2,p:"EMIR's 2019 diet plan — same goals, lighter reporting burden for smaller players.",m:"Simplified reporting obligations for smaller non-financial counterparties and shifted more reporting responsibility onto larger financial firms.",w:"If a legacy EMIR reporting system predates 2019, expect a Refit-driven rework of who reports what."},
+{t:"CSDR",full:"Central Securities Depositories Regulation",r:2,c:2,p:"The EU rulebook for how depositories operate, including penalties for late settlement.",m:"Introduced standardized settlement discipline: cash penalties for settlement fails and (originally) mandatory buy-ins, later scaled back.",w:"Directly extends the Failed Trade / buy-in mechanics covered in this org's Jargon Decoder — CSDR is the EU's legal enforcement layer on top of that concept."},
+{t:"SFTR",full:"Securities Financing Transactions Regulation",r:2,c:2,p:"EMIR's cousin, but for repo, securities lending, and margin lending instead of derivatives.",m:"Requires both sides of a securities financing transaction to report details to a trade repository, adding transparency to the \"shadow banking\" space.",w:"Comes up whenever a project touches repo or securities lending reporting in an EU context — often confused with EMIR reporting, which covers derivatives instead."},
+{t:"T2S",full:"TARGET2-Securities",r:2,c:2,p:"A single shared settlement engine that lets securities settle the same way across many European markets.",m:"Run by the Eurosystem; participating CSDs settle securities transactions on one common platform instead of dozens of incompatible national ones.",w:"Relevant background for any project that has to reconcile settlement behavior across multiple EU markets — T2S is why it's more harmonized than it used to be."},
+{t:"CCP",full:"Central Counterparty",r:0,c:2,p:"The institution that steps into the middle of every trade — becomes the buyer to every seller, and the seller to every buyer.",m:"Already covered under \"Novation\" in this org's Jargon Decoder — CCPs like LCH, ICE Clear, and NSE Clearing absorb counterparty default risk market-wide.",w:"Regulatory rules like EMIR and Dodd-Frank exist largely to push more trading through CCPs — this term is the connective tissue between the two decoders."},
+{t:"CSD",full:"Central Securities Depository",r:0,c:2,p:"The vault where dematerialized securities actually live as electronic book entries.",m:"Examples: DTC (US), Euroclear/Clearstream (EU), NSDL/CDSL (India). Your broker's balance is just a mirror of what the CSD's ledger says.",w:"Same concept the Jargon Decoder calls \"Depository\" — CSDR is the EU regulation that governs how these entities must operate."},
+{t:"DTCC",full:"Depository Trust & Clearing Corporation",r:1,c:2,p:"The behind-the-scenes utility that clears and settles the overwhelming majority of US securities trades.",m:"A holding company whose subsidiaries include DTC (the CSD), NSCC (equities clearing), and FICC (fixed income clearing).",w:"When a US settlement project asks \"who actually processes this,\" the answer is almost always some DTCC subsidiary."},
+{t:"NSCC",full:"National Securities Clearing Corporation",r:1,c:2,p:"DTCC's equities-clearing arm — nets and guarantees US stock trades before they settle.",m:"Performs multilateral netting so that, instead of settling every individual trade, only net obligations move on settlement day.",w:"The concrete US example behind the \"Netting\" concept in the Jargon Decoder."},
+{t:"FICC",full:"Fixed Income Clearing Corporation",r:1,c:2,p:"DTCC's arm for clearing US Treasury and mortgage-backed securities trades.",m:"Runs the Government Securities Division and Mortgage-Backed Securities Division, the plumbing behind the world's most-traded bond market.",w:"Relevant for any project touching Treasury or MBS settlement — a different pipe than the equities-focused NSCC."},
+{t:"PFMI",full:"Principles for Financial Market Infrastructures",r:0,c:2,p:"The global rulebook for how CCPs, CSDs, and payment systems should be run safely.",m:"Jointly issued by CPMI and IOSCO; covers governance, risk management, and default procedures for systemically important market infrastructure.",w:"When a CCP or CSD project needs a \"why do we need this control\" answer, PFMI is frequently the root global standard, similar to how FATF anchors AML rules."},
+{t:"UMR",full:"Uncleared Margin Rules",r:0,c:2,p:"Margin requirements for derivatives that never make it to a CCP — the non-cleared cousin of exchange-traded margin.",m:"A phased-in global framework (via BCBS-IOSCO) requiring firms trading bilateral, uncleared derivatives to post initial and variation margin.",w:"Comes up in derivatives collateral projects once a firm's uncleared trading volume crosses a regulatory threshold — a frequent trigger for new margin-calculation builds."},
+
+{t:"Basel III",full:"Basel III",r:0,c:3,p:"The global rulebook for how much capital and liquidity a bank must hold to survive a crisis.",m:"Issued by the Basel Committee (hosted at the BIS) after 2008; introduced tougher capital ratios, a leverage ratio, and new liquidity standards (LCR, NSFR).",w:"The foundational standard behind almost every bank capital project — national rules like CRD IV/CRR (EU) or US capital rules are how Basel III gets transposed into local law."},
+{t:"Basel IV",full:"Basel III finalisation reforms",r:0,c:3,p:"The 2017 finishing touches on Basel III, mainly to stop banks from gaming their own risk models.",m:"Caps how much banks' internal models can shrink capital requirements versus a standardized approach — informally \"Basel IV,\" though the Committee itself calls it part of Basel III.",w:"Watch for this informal name in vendor docs and news — regulators themselves usually just say \"the Basel III finalisation reforms.\""},
+{t:"CRD IV / CRR",full:"Capital Requirements Directive IV / Regulation",r:2,c:3,p:"How the EU actually implements Basel III into binding law.",m:"CRD is a directive (each country transposes it into national law); CRR is a regulation (directly binding EU-wide) — together they set EU bank capital, liquidity, and leverage requirements.",w:"The directive/regulation split matters for BAs: a CRR requirement applies uniformly across the EU, while a CRD requirement can vary slightly by country."},
+{t:"CRR II",full:"Capital Requirements Regulation II",r:2,c:3,p:"CRR's 2019 update, folding in Basel III's later liquidity and leverage refinements.",m:"Added the binding Net Stable Funding Ratio (NSFR) and leverage ratio requirements that CRR I had left as reporting-only.",w:"If a legacy EU capital project only tracks LCR, CRR II is likely why NSFR now needs adding too."},
+{t:"Dodd-Frank",full:"Dodd-Frank Wall Street Reform and Consumer Protection Act",r:1,c:3,p:"The sweeping US response to 2008 — banking, derivatives, and consumer protection reform in one giant law.",m:"Created the CFPB, the Volcker Rule, and Title VII's derivatives clearing/reporting regime (the US EMIR-equivalent), among hundreds of other provisions.",w:"The single most-cited US post-crisis law — most US derivatives and bank-structure projects trace back to a specific Dodd-Frank title."},
+{t:"Volcker Rule",full:"Volcker Rule (Dodd-Frank §619)",r:1,c:3,p:"The part of Dodd-Frank that tells banks: stop gambling with depositors' money.",m:"Bans banks from proprietary trading and restricts their investments in hedge funds and private equity, with narrow exceptions for market-making and hedging.",w:"Comes up whenever a bank's trading desk needs to justify that a position is genuine market-making, not a prohibited prop bet — a recurring compliance-documentation exercise."},
+{t:"G-SIB",full:"Global Systemically Important Bank",r:0,c:3,p:"The \"too big to fail\" club — banks whose collapse would shake the whole financial system.",m:"The FSB publishes an annual list (JPMorgan, HSBC, etc.); G-SIB status brings extra capital surcharges and stricter oversight.",w:"If a project involves one of these named institutions, expect extra layers of regulatory requirement beyond what a regular bank faces."},
+{t:"LCR",full:"Liquidity Coverage Ratio",r:0,c:3,p:"Makes banks hold enough easy-to-sell assets to survive a 30-day bank run.",m:"A Basel III ratio: high-quality liquid assets divided by projected net cash outflows over 30 days, must stay above 100%.",w:"The regulatory reason banks maintain large \"liquidity buffers\" — a frequent input in bank treasury and liquidity-risk projects."},
+{t:"NSFR",full:"Net Stable Funding Ratio",r:0,c:3,p:"LCR's longer-term sibling — makes sure a bank's funding matches how long its assets are actually tied up.",m:"Compares \"available stable funding\" to \"required stable funding\" over a one-year horizon, discouraging banks from funding long-term assets with short-term borrowing.",w:"Pairs with LCR in most bank liquidity-risk builds — LCR covers 30 days, NSFR covers a year."},
+{t:"FRTB",full:"Fundamental Review of the Trading Book",r:0,c:3,p:"A stricter, harder-to-game way for banks to calculate the capital they hold against trading risk.",m:"Basel's post-crisis overhaul of market-risk capital rules, replacing the old VaR-based approach with a more granular, less-gameable framework.",w:"One of the largest recent bank technology programs — implementing FRTB often means rebuilding a bank's entire market-risk data infrastructure."},
+{t:"ICAAP",full:"Internal Capital Adequacy Assessment Process",r:2,c:3,p:"A bank's own homework assignment: prove to regulators you understand your risks and hold enough capital for them.",m:"Required under Basel's \"Pillar 2\" — banks must self-assess risks beyond the standard Pillar 1 formulas and document their reasoning to the regulator.",w:"A recurring annual deliverable in bank risk-management projects, distinct from the more mechanical Pillar 1 capital ratio calculations."},
+{t:"TLAC",full:"Total Loss-Absorbing Capacity",r:0,c:3,p:"The extra capital cushion that the very biggest banks must hold, on top of normal requirements, so they can fail without a taxpayer bailout.",m:"An FSB standard applying specifically to G-SIBs — layers additional bail-in-able debt on top of ordinary capital so losses hit investors, not the public.",w:"Only relevant to G-SIB-scale institutions — a useful filter when scoping whether a capital project needs to account for it."},
+{t:"CCAR",full:"Comprehensive Capital Analysis and Review",r:1,c:3,p:"The Fed's annual \"can you survive a disaster movie\" exam for big US banks.",m:"Requires large banks to model their capital position through severe hypothetical recessions and get Fed approval before paying dividends or buybacks.",w:"One of the biggest recurring data and modeling exercises at large US banks — a common source of stress-testing BA work."},
+
+{t:"CRS",full:"Common Reporting Standard",r:0,c:4,p:"The world's system for tax authorities to automatically swap information on foreign-held accounts.",m:"Developed by the OECD; over 100 countries automatically exchange account-holder data to catch offshore tax evasion — the international answer to FATCA.",w:"Comes up in client onboarding projects needing tax-residency self-certification, alongside FATCA."},
+{t:"FATCA",full:"Foreign Account Tax Compliance Act",r:1,c:4,p:"The US law that makes foreign banks report on their American account holders, or face penalties.",m:"Forces non-US financial institutions to identify and report US-person account holders to the IRS, or suffer a 30% withholding tax on US-source payments.",w:"The reason client-onboarding forms everywhere in the world ask \"are you a US person\" — a near-universal KYC field."},
+{t:"TRACE",full:"Trade Reporting and Compliance Engine",r:1,c:4,p:"FINRA's system that brings post-trade transparency to the once-opaque US corporate bond market.",m:"Requires dealers to report over-the-counter bond trades within minutes, which FINRA then disseminates publicly.",w:"The bond-market equivalent of stock tape reporting — relevant to any fixed-income trade-reporting project."},
+{t:"Form PF",full:"Form PF (Private Fund reporting)",r:1,c:4,p:"The confidential report big hedge funds and private equity funds file with US regulators about their risk exposure.",m:"Required under Dodd-Frank; filed with the SEC (shared with the FSOC) to help spot systemic risk building up in the private fund industry.",w:"A recurring annual/quarterly compliance deliverable for private fund managers — often a dedicated regulatory-reporting BA workstream."},
+{t:"Form ADV",full:"Form ADV (Investment Adviser registration)",r:1,c:4,p:"An investment adviser's public résumé and rap sheet, filed with the SEC.",m:"Discloses an adviser's business, fees, conflicts of interest, and disciplinary history; Part 2 (\"the brochure\") must be given to clients.",w:"The document underlying most \"know your adviser\" due diligence — relevant to onboarding and disclosure projects for asset managers."},
+{t:"N-PORT / N-CEN",full:"Fund portfolio holdings reports",r:1,c:4,p:"The SEC's monthly (N-PORT) and annual (N-CEN) portfolio holdings reports that registered funds must file.",m:"N-PORT gives regulators near-real-time visibility into fund holdings and risk metrics; N-CEN covers broader fund census-style data.",w:"Relevant to any mutual fund or ETF operations project handling regulatory reporting pipelines."},
+{t:"COREP / FINREP",full:"Common Reporting / Financial Reporting",r:2,c:4,p:"The EU's standardized templates for reporting bank capital (COREP) and financial statements (FINREP) to regulators.",m:"Harmonized reporting formats required under CRD IV/CRR so EU regulators can compare banks apples-to-apples across countries.",w:"The concrete deliverable behind most EU bank regulatory-reporting projects — expect to see these template names in actual requirements docs."},
+{t:"BCBS 239",full:"Principles for effective risk data aggregation and reporting",r:0,c:4,p:"The Basel Committee's principles for banks to actually trust their own risk numbers.",m:"Requires G-SIBs to have risk-data aggregation and reporting capabilities accurate and fast enough to produce reliable numbers during a crisis, not just on a quiet Tuesday.",w:"Frequently cited to justify data-quality and data-lineage investment in bank risk-reporting technology projects — a favorite regulation to reference when asking for a data infrastructure budget."},
+
+{t:"Reg BI",full:"Regulation Best Interest",r:1,c:5,p:"The rule that makes US brokers actually put your interests ahead of their commission.",m:"Replaced the old, weaker \"suitability\" standard for broker-dealers recommending retail securities transactions, though it stops short of a full fiduciary duty.",w:"Comes up in any US retail brokerage conduct or disclosure project — often compared against the stricter fiduciary standard investment advisers already owe."},
+{t:"SMCR",full:"Senior Managers and Certification Regime",r:3,c:5,p:"The UK rule that makes individual senior bankers personally accountable, not just their firms.",m:"Assigns named senior managers formal \"statements of responsibility\" so regulators can hold a specific person accountable when something goes wrong.",w:"Drives a lot of UK governance-mapping and accountability-documentation work — a distinctly people-and-process-shaped regulation rather than a data/reporting one."},
+{t:"Consumer Duty",full:"FCA Consumer Duty",r:3,c:5,p:"The FCA's 2023 rule requiring firms to actively deliver good outcomes for retail customers, not just avoid harming them.",m:"Raises the bar from \"treat customers fairly\" to proving good outcomes across products, price, understanding, and support — with ongoing monitoring obligations.",w:"A major recent driver of UK product-governance and customer-communications review projects."},
+{t:"PRIIPs",full:"Packaged Retail and Insurance-based Investment Products",r:2,c:5,p:"The EU rule requiring a standardized, comparable summary document for complex retail investment products.",m:"Applies to structured products, insurance-based investments, and funds sold to retail investors, requiring the KID before sale.",w:"Any EU retail-facing structured product or fund distribution project needs to check PRIIPs disclosure obligations."},
+{t:"KID / KIID",full:"Key Information Document / Key Investor Information Document",r:2,c:5,p:"The 2-3 page \"nutrition label\" for an investment product, required before a retail investor can buy it.",m:"KID is the PRIIPs-mandated version for packaged products; KIID is the older, UCITS-specific version — the two are gradually converging.",w:"A frequent deliverable in EU fund-distribution and product-launch projects — worth checking which of the two versions currently applies to a given product type."},
+{t:"ERISA",full:"Employee Retirement Income Security Act",r:1,c:5,p:"The US law protecting your pension and 401(k) from being mismanaged.",m:"Sets fiduciary standards for anyone managing retirement plan assets, plus funding, vesting, and reporting requirements for pension plans.",w:"Relevant to any project touching US retirement plan assets — ERISA's fiduciary duty is often stricter than ordinary investment-adviser obligations."},
+
+{t:"AML",full:"Anti-Money Laundering",r:0,c:6,p:"The umbrella term for everything designed to stop dirty money from looking clean.",m:"Covers customer screening, transaction monitoring, and suspicious activity reporting — implemented differently in every jurisdiction but rooted in FATF's global standard.",w:"Nearly every onboarding, payments, or account-opening project has an AML control requirement somewhere in its scope."},
+{t:"KYC",full:"Know Your Customer",r:0,c:6,p:"Verifying who your customer actually is before you do business with them.",m:"The foundational AML control: identity verification, screening against sanctions/PEP lists, and understanding the expected pattern of account activity.",w:"The single most common \"requirement\" a capital markets BA writes user stories for — nearly every onboarding flow starts here."},
+{t:"CDD",full:"Customer Due Diligence",r:0,c:6,p:"KYC's more formal cousin — the ongoing process of understanding and monitoring a customer's risk profile.",m:"Includes identity verification, beneficial ownership checks, and understanding the purpose of the relationship, on a risk-based (not one-size-fits-all) basis.",w:"Distinguish from KYC in requirements docs: CDD is the broader, ongoing risk-assessment process; KYC is often used loosely for the identity-check part specifically."},
+{t:"EDD",full:"Enhanced Due Diligence",r:0,c:6,p:"CDD's intensified version for higher-risk customers — PEPs, high-risk countries, unusual transaction patterns.",m:"Requires additional verification steps, senior management sign-off, and more frequent ongoing monitoring than standard CDD.",w:"A common trigger condition in onboarding-workflow logic: \"if risk score exceeds X, route to EDD\" is a frequent BA requirement."},
+{t:"BSA",full:"Bank Secrecy Act",r:1,c:6,p:"The original 1970 US law requiring banks to help catch money laundering — despite the misleading name, it's an anti-secrecy law.",m:"Requires currency transaction reports, suspicious activity reports, and recordkeeping — later expanded heavily by the Patriot Act.",w:"The foundational US AML law — most US-facing AML system requirements ultimately trace back to the BSA."},
+{t:"Patriot Act",full:"USA PATRIOT Act",r:1,c:6,p:"The post-9/11 law that dramatically expanded US AML and customer-identification requirements.",m:"Section 326 mandates formal Customer Identification Programs (CIP); also expanded information-sharing and due-diligence requirements for foreign correspondent banking.",w:"The reason \"CIP\" shows up as a distinct requirement alongside KYC in US onboarding specs."},
+{t:"OFAC",full:"Office of Foreign Assets Control",r:1,c:6,p:"The US Treasury unit that maintains the sanctions lists you must screen customers against.",m:"Administers economic sanctions programs and the Specially Designated Nationals (SDN) list — dealing with a listed party can mean severe penalties.",w:"The concrete list behind every \"sanctions screening\" requirement in a US-facing onboarding or payments project."},
+{t:"SAR",full:"Suspicious Activity Report",r:0,c:6,p:"The confidential report a bank files with regulators when a transaction looks like it might be money laundering.",m:"Filed with FinCEN in the US (or the equivalent national Financial Intelligence Unit elsewhere) — filing is itself confidential, and tipping off the customer is illegal.",w:"The end-of-pipeline output of most transaction-monitoring systems — a natural requirement to reference when scoping AML alerting logic."},
+{t:"AMLD (4th/5th/6th)",full:"EU Anti-Money Laundering Directives",r:2,c:6,p:"The EU's evolving AML rulebook, updated in numbered waves as new risks (crypto, shell companies) emerge.",m:"5AMLD brought crypto exchanges into scope and tightened beneficial-ownership registers; 6AMLD harmonized criminal penalties across member states.",w:"When an EU AML requirement cites a directive number, check which AMLD version — the rules meaningfully changed between them."},
+{t:"FinCEN",full:"Financial Crimes Enforcement Network",r:1,c:6,p:"The US Treasury bureau that collects and analyzes all those SARs banks file.",m:"Administers the Bank Secrecy Act, runs the beneficial-ownership registry, and coordinates with law enforcement and international counterparts.",w:"The actual recipient system behind US SAR-filing requirements — useful to name in a data-flow diagram."},
+{t:"PEP",full:"Politically Exposed Person",r:0,c:6,p:"Someone in (or close to) a position of public power — a bigger money-laundering and bribery risk by virtue of that access.",m:"Includes government officials, their family members, and close associates; typically triggers Enhanced Due Diligence automatically.",w:"A standard flag field in nearly every KYC data model — usually sourced from a third-party screening vendor rather than built in-house."},
+{t:"UBO",full:"Ultimate Beneficial Owner",r:0,c:6,p:"The real human being who actually owns or controls a company, however many shell layers deep.",m:"AML rules typically require identifying anyone owning 25%+ of an entity (thresholds vary by jurisdiction) — the point of beneficial-ownership registers under 5AMLD and similar laws.",w:"A recurring data-modeling challenge: entity-onboarding systems need to trace ownership through layers of holding companies to a real person."},
+
+{t:"GDPR",full:"General Data Protection Regulation",r:2,c:7,p:"The EU's sweeping personal-data privacy law — the reason every website has a cookie banner.",m:"Grants individuals rights over their data (access, deletion, portability) and imposes fines up to 4% of global revenue for violations.",w:"Any project touching EU client data needs a GDPR lawful-basis and data-retention conversation — often intersects awkwardly with AML rules requiring long-term record retention."},
+{t:"DORA",full:"Digital Operational Resilience Act",r:2,c:7,p:"The EU's new rule that financial firms must prove their IT systems can survive a cyberattack or major outage, not just promise to.",m:"Effective 2025; covers ICT risk management, incident reporting, resilience testing, and oversight of critical third-party tech vendors (cloud providers, etc.).",w:"One of the newest major EU regulations — a strong current source of BA work around operational resilience and vendor-risk requirements."},
+{t:"Reg SCI",full:"Regulation Systems Compliance and Integrity",r:1,c:7,p:"The SEC's rule making sure exchanges' and other key market systems' technology doesn't fall over.",m:"Requires covered entities (exchanges, clearing agencies, large ATSs) to have robust system safeguards, testing, and mandatory incident reporting to the SEC.",w:"The US regulatory anchor for market-infrastructure technology resilience, similar in spirit to DORA but narrower in scope (market systems, not all financial firms)."},
+{t:"BCP",full:"Business Continuity Planning",r:0,c:7,p:"The \"what do we do if the building burns down / the systems go dark\" plan every regulated firm must have.",m:"Regulators across jurisdictions require documented, tested plans for maintaining critical operations through disruptions — not one specific law, but a near-universal requirement.",w:"A recurring requirements category in operational-risk projects — worth confirming which specific regulation (DORA, Reg SCI, or a local rule) is driving the BCP requirement in a given project."},
+{t:"PCI DSS",full:"Payment Card Industry Data Security Standard",r:0,c:7,p:"The security standard every business handling credit card data must follow — not a government law, but an industry mandate.",m:"Created by the major card networks (Visa, Mastercard, etc.); non-compliance can mean losing the ability to process card payments at all.",w:"Relevant to any payments or card-processing project — technically not financial-markets regulation, but it functions like one in practice."},
+
+{t:"UCITS",full:"Undertakings for Collective Investment in Transferable Securities",r:2,c:8,p:"The EU's gold-standard label for retail-friendly, cross-border-sellable investment funds.",m:"A UCITS fund can be sold to retail investors across the whole EU with one authorization, subject to strict diversification and liquidity rules.",w:"The default fund \"wrapper\" for EU retail fund launches — a project scoping a new EU retail fund almost always starts by asking \"UCITS or not?\""},
+{t:"AIFMD",full:"Alternative Investment Fund Managers Directive",r:2,c:8,p:"The EU rulebook for hedge funds, private equity, and other \"alternative\" funds that don't qualify as UCITS.",m:"Regulates the fund manager (not just the fund), covering authorization, risk management, remuneration, and a \"passport\" for marketing across the EU.",w:"Relevant whenever a project involves EU-domiciled hedge fund or private equity fund operations, as opposed to UCITS retail funds."},
+{t:"Rule 2a-7",full:"Money Market Fund Rule",r:1,c:8,p:"The rule that keeps US money market funds boring and safe — steady at $1 a share, in theory.",m:"Restricts money market funds to short-maturity, high-quality investments and requires liquidity buffers, especially after 2008 and 2020 stress episodes exposed cracks.",w:"Comes up in any US cash-management or money market fund project — the source of maturity and credit-quality constraints in a fund's investment guidelines."},
+{t:"'40 Act",full:"Investment Company Act of 1940",r:1,c:8,p:"The foundational US law that created the modern regulated mutual fund.",m:"Sets rules for fund structure, disclosure, leverage limits, and governance (independent boards) — mutual funds and most ETFs are '40 Act funds.",w:"The reason US retail funds look structurally different from hedge funds — a '40 Act fund accepts heavy regulation in exchange for being sellable to the retail public."},
+{t:"Advisers Act",full:"Investment Advisers Act of 1940",r:1,c:8,p:"The companion law regulating the people who manage the money, not just the funds themselves.",m:"Requires investment advisers to register with the SEC (or states, if smaller) and imposes a fiduciary duty to act in clients' best interests.",w:"The source of the \"fiduciary duty\" standard that's often contrasted with the weaker broker-dealer suitability/Reg BI standard in conduct discussions."},
+{t:"CPO / CTA",full:"Commodity Pool Operator / Commodity Trading Advisor",r:1,c:8,p:"The CFTC's registration categories for people who pool money into commodity/futures funds (CPO) or advise on futures trading (CTA).",m:"Analogous to how the '40 Act and Investment Advisers Act govern securities funds and advisers — but for the futures and derivatives side of the business, under CFTC/NFA oversight.",w:"Relevant when a project's fund invests significantly in futures or swaps — it may need CPO/CTA registration in addition to (or instead of) SEC fund/adviser registration."}
+];
+
+/* ---------- decode mode ---------- */
+const grid=document.getElementById("grid");
+const countEl=document.getElementById("count");
+const q=document.getElementById("q");
+const chipsEl=document.getElementById("chips");
+const regionChipsEl=document.getElementById("regionChips");
+let activeCat=-1;
+let activeRegion=-1;
+
+function esc(s){const d=document.createElement("div");d.textContent=s;return d.innerHTML;}
+
+function render(){
+  const query=q.value.trim().toLowerCase();
+  const list=ITEMS.filter(x=>{
+    const catOk = activeCat===-1 || x.c===activeCat;
+    const regionOk = activeRegion===-1 || x.r===activeRegion;
+    const qOk = !query || x.t.toLowerCase().includes(query) || x.full.toLowerCase().includes(query) || x.p.toLowerCase().includes(query) || x.m.toLowerCase().includes(query) || x.w.toLowerCase().includes(query);
+    return catOk && regionOk && qOk;
+  });
+  if(!list.length){
+    grid.innerHTML=`<div class="empty"><div class="big">Not on the map — yet.</div>Try another term, or clear a filter.</div>`;
+  }else{
+    grid.innerHTML=list.map(x=>{
+      return `
+      <div class="card" data-term="${esc(x.t)}">
+        <div class="top">
+          <div class="cat">${CATS[x.c]} <span class="region-tag">${REGIONS[x.r]}</span></div>
+          <div class="top-actions">
+            <button class="link-badge" type="button" data-term="${esc(x.t)}">copy link</button>
+            <button class="badge" type="button" data-why="${esc(x.t)}">why it matters</button>
+          </div>
+        </div>
+        <h3>${esc(x.t)}</h3>
+        <div class="full">${esc(x.full)}</div>
+        <p class="plain">${esc(x.p)}</p>
+        <p class="more">${esc(x.m)}</p>
+        <div class="why"><b>Why a BA should care</b>${esc(x.w)}</div>
+      </div>`;
+    }).join("");
+    grid.querySelectorAll(".badge").forEach(b=>{
+      b.addEventListener("click",e=>{
+        e.currentTarget.closest(".card").classList.toggle("open");
+      });
+    });
+    grid.querySelectorAll(".link-badge").forEach(b=>{
+      b.addEventListener("click",e=>{
+        const btn=e.currentTarget;
+        const term=btn.getAttribute("data-term");
+        const url=`${window.location.origin}${window.location.pathname}?term=${encodeURIComponent(term)}`;
+        const showState=(text,cls)=>{
+          const original="copy link";
+          btn.textContent=text;
+          if(cls)btn.classList.add(cls);
+          setTimeout(()=>{btn.textContent=original;btn.classList.remove("copied");},1500);
+        };
+        const fallbackCopy=()=>{
+          const ta=document.createElement("textarea");
+          ta.value=url;ta.style.position="fixed";ta.style.opacity="0";
+          document.body.appendChild(ta);ta.select();
+          try{
+            document.execCommand("copy");
+            showState("copied!","copied");
+          }catch(err){
+            showState("couldn't copy");
+          }
+          document.body.removeChild(ta);
+        };
+        if(navigator.clipboard&&navigator.clipboard.writeText){
+          navigator.clipboard.writeText(url).then(()=>showState("copied!","copied")).catch(fallbackCopy);
+        }else{
+          fallbackCopy();
+        }
+      });
+    });
+  }
+  countEl.innerHTML = `<b>${list.length}</b> of ${ITEMS.length} entries mapped`;
+}
+
+const allChip=document.createElement("button");
+allChip.className="chip active";allChip.textContent="All";
+allChip.addEventListener("click",()=>{activeCat=-1;setChip(allChip,chipsEl);render();});
+chipsEl.appendChild(allChip);
+CATS.forEach((c,i)=>{
+  const b=document.createElement("button");
+  b.className="chip";b.textContent=c;
+  b.addEventListener("click",()=>{activeCat=i;setChip(b,chipsEl);render();});
+  chipsEl.appendChild(b);
+});
+
+const allRegionChip=document.createElement("button");
+allRegionChip.className="chip active";allRegionChip.textContent="All";
+allRegionChip.addEventListener("click",()=>{activeRegion=-1;setChip(allRegionChip,regionChipsEl);render();});
+regionChipsEl.appendChild(allRegionChip);
+REGIONS.forEach((r,i)=>{
+  const b=document.createElement("button");
+  b.className="chip";b.textContent=r;
+  b.addEventListener("click",()=>{activeRegion=i;setChip(b,regionChipsEl);render();});
+  regionChipsEl.appendChild(b);
+});
+
+function setChip(el,container){container.querySelectorAll(".chip").forEach(x=>x.classList.remove("active"));el.classList.add("active");}
+
+q.addEventListener("input",render);
+document.getElementById("surprise").addEventListener("click",()=>{
+  const t=ITEMS[Math.floor(Math.random()*ITEMS.length)];
+  activeCat=-1;setChip(allChip,chipsEl);
+  activeRegion=-1;setChip(allRegionChip,regionChipsEl);
+  q.value=t.t;render();
+  const card=grid.querySelector(`.card[data-term="${CSS.escape(t.t)}"]`);
+  if(card)card.classList.add("open");
+});
+
+render();
+
+/* ---------- deep link: ?term=MiFID%20II ---------- */
+const linkedTerm = new URLSearchParams(window.location.search).get("term");
+if (linkedTerm) {
+  const match = ITEMS.find(x => x.t.toLowerCase() === linkedTerm.toLowerCase());
+  if (match) {
+    q.value = match.t;
+    render();
+    const card = grid.querySelector(`.card[data-term="${CSS.escape(match.t)}"]`);
+    if (card) card.classList.add("open");
+  }
+}
+</script>
+</body>
+</html>
